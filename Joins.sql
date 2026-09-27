@@ -96,6 +96,10 @@ full outer join table2
 on table1.c1 = table2.c1
 
 
+--self join
 
+select * from table1 as a
+inner join table1 as b
+on a.c1 = b.c1
 
 
