@@ -75,6 +75,26 @@ select a.c2, b.c1, b.c3 from table1 a
 right outer join table2 b
 on a.c1 = b.c1
 
+--left and right anti join
+
+select * from table1
+left join table2
+on table1.c1 = table2.c1
+where table2.c1 is NULL
+
+
+select * from table1
+right join table2
+on table1.c1 = table2.c1
+where table1.c1 is NULL
+
+
+--full outer join
+
+select * from table1
+full outer join table2
+on table1.c1 = table2.c1
+
 
 
 
