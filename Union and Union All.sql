@@ -30,3 +30,6 @@ select * from append2
 select * from append1
 union 
 select * from append2
+
+--number of cloumns in both tables along with order and datatypes should be same.
+--alias names specified in first assign table wil be applied 
