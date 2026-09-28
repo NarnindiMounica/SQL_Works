@@ -23,4 +23,4 @@ values
 
 select * from append1
 union all
-append2
+select * from append2
