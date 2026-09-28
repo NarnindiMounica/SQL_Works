@@ -19,3 +19,8 @@ insert into append1
 values
 (2, 'b', 8),
 (31, 'ca', 91)
+
+
+select * from append1
+union all
+append2
