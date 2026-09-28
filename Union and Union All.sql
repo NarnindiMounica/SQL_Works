@@ -24,3 +24,9 @@ values
 select * from append1
 union all
 select * from append2
+
+--union will show rows without duplicates
+
+select * from append1
+union 
+select * from append2
