@@ -64,4 +64,12 @@ where lastname like '____a'
 select * from employees_us
 where department like 'mar%ing'
 
+--find employees whose first name has an 'a' in third position.
+select * from employees_us
+where firstname like '__a%'
+
+--
+
+
+
 
