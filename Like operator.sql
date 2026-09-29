@@ -76,6 +76,12 @@ where lastname like 'b[rl]%'
 select * from employees_us
 where firstname like '[aeiou]%'
 
+--find employees whose first name starts with a consonant
+select * from employees_us
+where firstname not like '[aeiou]%'
+
+
+
 
 
 
