@@ -25,7 +25,7 @@ INSERT INTO Products (ProductID, ProductName, Category, Price, StockQuantity, Su
 (10, 'Coffee Mug', 'Accessories', 9.99, 300, 'MugMasters', 4.1);
 
 
---ex ample 1: add a column to categorize each product into catgories high, medium and low.
+--example 1: add a column to categorize each product into catgories high, medium and low.
 
 select *,
 case
@@ -34,3 +34,15 @@ case
     else 'low'
 end as ProductCategory
 from products
+
+--based on price
+
+select *,
+case
+    when price > 500 then 'high'
+    when price between 200 and 5000 then 'medium'
+    else 'low'
+end as '[high/medium/low]'
+from products
+
+
