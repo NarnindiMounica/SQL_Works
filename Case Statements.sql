@@ -77,7 +77,7 @@ case
         else 'affordable furniture'
     end
 end as 'cat_priority'
-from product
+from products
 
 
 
