@@ -68,7 +68,14 @@ where department like 'mar%ing'
 select * from employees_us
 where firstname like '__a%'
 
---
+--find employees whose last name starts with 'br' or 'bl'
+select * from employees_us
+where lastname like 'b[rl]%'
+
+--find employees whose first name starts with a vowel
+select * from employees_us
+where firstname like '[aeiou]%'
+
 
 
 
