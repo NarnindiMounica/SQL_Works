@@ -1,4 +1,4 @@
-
+use sales_database
 
 -- Create the Products table
 CREATE TABLE Products (
@@ -23,3 +23,14 @@ INSERT INTO Products (ProductID, ProductName, Category, Price, StockQuantity, Su
 (8, 'Standing Desk', 'Furniture', 250.00, 50, 'Comfort Co', 4.9),
 (9, 'Fitness Tracker', 'Electronics', 129.99, 180, 'FitTech', 4.7),
 (10, 'Coffee Mug', 'Accessories', 9.99, 300, 'MugMasters', 4.1);
+
+
+--ex ample 1: add a column to categorize each product into catgories high, medium and low.
+
+select *,
+case
+    when category like 'electronics' then 'high'
+    when category like 'accessories' then 'medium'
+    else 'low'
+end as ProductCategory
+from products
