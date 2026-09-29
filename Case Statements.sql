@@ -45,4 +45,40 @@ case
 end as '[high/medium/low]'
 from products
 
+--provide priority to each category and sort data by that category
+
+select * from products
+order by
+case
+    when category like 'electronics' then 1
+    when category like 'accessories' then 2
+    else 3
+end 
+
+--Nested case example:
+
+--we need to group the data based on columns category & price into different categories i.e affordable and premium.
+
+select *,
+case
+    when category like 'electronics' then
+    case 
+        when price > 500 then 'premium electronics'
+        else 'affordable electronics'
+    end
+    when category like 'accessories' then
+    case 
+        when price > 500 then 'premium accessories'
+        else 'affordable accessories'
+    end
+    when category like 'furniture' then
+    case 
+        when price > 500 then 'premium furniture'
+        else 'affordable furniture'
+    end
+end as 'cat_priority'
+from products
+
+
+
 
