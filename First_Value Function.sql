@@ -39,6 +39,12 @@ first_value(salary) over(order by employeeid asc) as least_salary,
 first_value(employeename) over(order by employeeid asc) as least_salaried_emp
 from employeesalaries
 
+--using partition by department
+
+select *,
+first_value(salary) over(partition by department order by salary) as first_value_salary
+from employeesalaries
+
 
 
 
