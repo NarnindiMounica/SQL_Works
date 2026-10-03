@@ -67,4 +67,3 @@ select * from employees
 --sub query to get all employee details whose salary is greater than average salary
 select * from employees
 where salary > (select avg(salary) from employees)
-
