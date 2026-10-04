@@ -48,6 +48,7 @@ VALUES
 
 
 select * from students;
+--NOTE: These are windowed functions whihc can only appear in select/order by clause.
 
 --Row Number Function
 
