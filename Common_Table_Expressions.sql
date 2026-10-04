@@ -64,3 +64,86 @@ select * from cte3
 --
 select * from #temp1
 
+--Example 7:
+
+select * from employees
+
+select * into #1 from employees
+
+select * from #1
+
+--multiple CTEs
+
+with cte1 as (
+select * from #1 where employee_id = 101),
+cte2 as (
+select * from #1 where employee_id = 108)
+
+select * from cte1
+union all
+select * from cte2
+
+--Example 8:
+
+with cte3 as (
+select employee_id, salary from #1 where employee_id in (101, 104)),
+cte4 as (
+select employee_id, salary from #1 where employee_id in (111, 112))
+
+select * into #2 from(
+select * from cte3
+union all
+select * from cte4) as new_table
+--
+select * from #2
+
+--Example 9:
+
+with cte3 as (
+select employee_id, salary from #1 where employee_id in (101, 104)),
+cte4 as (
+select employee_id, salary from #1 where employee_id in (111, 112))
+
+insert into #2 select * from (
+select * from cte3
+union all
+select * from cte4) as x
+
+select * from #2
+
+--Example 10:
+
+with cte3 as (
+select employee_id, salary from #1 where employee_id in (104)),
+cte4 as (
+select employee_id, salary from #1 where employee_id in (112))
+
+delete from #1 where employee_id in 
+(select distinct(employee_id) from cte3
+union all
+select distinct(employee_id) from cte4)
+--
+select * from #1
+
+--Example 11:
+
+with cte3 as (
+select employee_id, salary from #1 where employee_id in (101)),
+cte4 as (
+select employee_id, salary from #1 where employee_id in (111))
+
+update #1 set employee_id = 2
+where employee_id in (
+select distinct(employee_id) from cte3
+union all
+select distinct(employee_id) from cte4)
+
+--
+select * from #1
+
+
+
+
+
+
+
