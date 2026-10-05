@@ -139,17 +139,24 @@ where ordered_items > 1
 
 --12)Retrieve all orders placed by customers from USA.
 
-select * from orders
-select * from customers
-select * from products
-
 select p.productname, c.country, c.customername from customers c
 inner join orders o on c.customerid = o.customerid
 inner join products p on p.productid = o.productid
 where c.country like 'usa'
 
 
-
 --13)Find the names of customers who have ordered product priced above $500.
 
+select c.customername from customers c
+inner join orders o on c.customerid = o.customerid
+inner join products p on p.productid = o.productid
+where p.price > 500
+
+
+
 --14) Find customers who has ordered same product more than once
+select distinct(m.customername) from (select customername, productid, count(orderid) from customers c
+inner join orders o on c.customerid = o.customerid
+group by customername, productid
+having count(orderid) > 1) as m
+
