@@ -139,6 +139,17 @@ where ordered_items > 1
 
 --12)Retrieve all orders placed by customers from USA.
 
+select * from orders
+select * from customers
+select * from products
+
+select p.productname, c.country, c.customername from customers c
+inner join orders o on c.customerid = o.customerid
+inner join products p on p.productid = o.productid
+where c.country like 'usa'
+
+
+
 --13)Find the names of customers who have ordered product priced above $500.
 
 --14) Find customers who has ordered same product more than once
